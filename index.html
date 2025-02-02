@@ -1,0 +1,111 @@
+<html>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+<script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+<link href="https://kuisberhadiah.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" />
+<head>
+<style>
+  /* Latar belakang halaman */
+  body {
+    background-image: url("foto.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Warna untuk tombol "Biru" */
+  .btn-biru {
+    background-color: #007BFF !important; /* Warna biru */
+    color: white !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+  }
+
+  .btn-biru:hover {
+    background-color: #0056b3 !important; /* Biru lebih gelap saat hover */
+  }
+
+  /* Warna untuk tombol "Merah" */
+  .btn-merah {
+    background-color: #FF0040 !important; /* Warna merah */
+    color: white !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+  }
+
+  .btn-merah:hover {
+    background-color: #C70039 !important; /* Merah lebih gelap saat hover */
+  }
+</style>
+</head>
+<body>
+
+<div id="bodyblur"></div>
+<div id="konten">
+  <div id="fotoloveu">
+    <div class="image"></div>
+    <!-- Tombol WhatsApp -->
+    <div id="tombWA">
+      <a class='button' onClick='redirectToNewPage();'>Klik di Sini</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function play() {
+  var audio = new Audio('https://kuisberhadiah.likeadream.repl.co/musiktiktok.m4a');
+  audio.loop = true;
+  audio.play();
+}         
+
+function redirectToNewPage() {
+  window.location.href = "nisa_ultah.html";
+}
+
+document.addEventListener("DOMContentLoaded", async function() {
+  const swals = Swal.mixin({
+    backdrop: 'rgba(0,0,123,0.4)',
+    confirmButtonColor: '#003EFF',
+    cancelButtonColor: '#FF0040',
+    allowOutsideClick: false,
+  });
+
+  play();
+  await swals.fire('HBD TAYOOOOO');                    
+  await swals.fire('Cie yang hari ini ultah 😂');
+  await swals.fire('Selamat ulang tahun!');
+  await swals.fire('Panjang umur & sehat selalu ❤️');
+  pilihwarna();
+});
+
+async function pilihwarna(){
+  const { isConfirmed: warnaBiru } = await Swal.fire({
+    title: 'pilih warna siapa tau menang bmw',
+    text: 'yo bisa yo :v',
+    showCancelButton: true,
+    confirmButtonText: 'Biru',
+    cancelButtonText: 'Merah',
+    customClass: {
+      confirmButton: 'btn-biru',
+      cancelButton: 'btn-merah'
+    }
+  });
+
+  let pesan = warnaBiru 
+    ? 'Kalo kamu pilih <b>Biru</b> berarti harus traktirin aku ya whahahah 😂!'
+    : 'Kalo kamu pilih <b>Merah</b> berarti harus traktirin aku ya wahahahaa 😂!';
+
+  await Swal.fire('Yeayy!', pesan);
+  
+  window.location.href = "nisa_ultah.html";
+}
+</script>
+</body>
+</html>
